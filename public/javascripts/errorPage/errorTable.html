@@ -1,0 +1,43 @@
+<div>
+ 	<span style="color: red">{{ errorCtrl.showError }}</span>
+	<section ng-hide="errorCtrl.isLoading">
+	    <input ng-model="errorCtrl.currentError.detection_type" type="text" class="form-control main-inputs" placeholder="detection_type"/>
+	    <input ng-model="errorCtrl.currentError.name" type="text" class="form-control main-inputs" placeholder="name"/>
+		<button ng-click="errorCtrl.tableSearched()" class="btn  btn-lg smallBtn">
+      		<i class="fa" ng-class="{'fa fa-search fa-spin': errorCtrl.searchedSpin, 'fa fa-search': !errorCtrl.searchedSpin}"></i>
+    	</button>	 		
+ 		<button  ng-click="errorCtrl.addError()" class="btn btn-lg smallBtn">
+      		<i class="fa fa-plus-circle"></i>
+    	</button>  	    
+		<button ng-click="errorCtrl.refresh()" class="btn  btn-lg smallBtn">
+	      	<i class="fa" ng-class="{'fa fa-refresh': !errorCtrl.refreshPressed, 'fa fa-refresh fa-spin': errorCtrl.refreshPressed}"></i>
+	    </button>
+    </section>
+	<div ng-class="{'circ': errorCtrl.isLoading}" ng-hide="!errorCtrl.isLoading">
+		<div class="load">Loading...</div>
+		<div class="hands"></div>
+		<div class="body"></div>
+		<div class="head">
+	 		<div class="eye"></div> 
+		</div>
+
+	</div>
+	<table class="errorTable" ng-show="errorCtrl.searchedErrors[0] && !errorCtrl.isLoading">
+		<tr>
+		 	<th>detection_type</th>
+		    <th>detection_index</th>
+		    <th>name</th>
+		    <th>Actions</th>
+		</tr>
+		<tr ng-repeat="error in errorCtrl.searchedErrors">
+		  	<td><input ng-model="error.detection_type" type="text" ng-class="{'table-inputs': errorCtrl.setPencilFlag&&(errorCtrl.editInd == error.detection_index), 'table-inputs noBorder': !(errorCtrl.setPencilFlag&&(errorCtrl.editInd == error.detection_index))}" ng-disabled="!((errorCtrl.editInd == error.detection_index) && errorCtrl.setPencilFlag)"/></td>
+		    <td><input ng-value="'{{error.detection_index}}'" type="text" class="table-inputs noBorder" ng-disabled="true"/></td>
+		    <td><input ng-model="error.name" type="text" ng-disabled="!((errorCtrl.editInd == error.detection_index) && errorCtrl.setPencilFlag)" ng-class="{'table-inputs': errorCtrl.setPencilFlag&&(errorCtrl.editInd == error.detection_index), 'table-inputs noBorder': !(errorCtrl.setPencilFlag&&(errorCtrl.editInd == error.detection_index))}"/></td>
+		    <td style="width: 150px;">
+		      	<button ng-click="errorCtrl.setPencilError(error)" ><i ng-class="{'fa fa-pencil-square': errorCtrl.setPencilFlag&&(errorCtrl.editInd == error.detection_index), 'fa fa-pencil': !(errorCtrl.setPencilFlag&&(errorCtrl.editInd == error.detection_index))}"></i></button>
+		      	<button ng-show="(errorCtrl.editInd == error.detection_index) && errorCtrl.setPencilFlag" ng-click="errorCtrl.editError(error);"><i class="fa fa-paper-plane" style="color: blue"></i></button>
+		      	<button ng-click="errorCtrl.deleteError(error);"> <i style="color: red" class="fa fa-trash"></i></button>
+		  	</td>
+		</tr>
+	</table>  
+ </div>

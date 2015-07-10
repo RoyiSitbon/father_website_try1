@@ -1,0 +1,99 @@
+$loadingBackground:#111;
+
+@mixin generalDefinition($width,$height,$borderRadius,$backgroundColor:#111,$position:relative){
+  width:$width;
+  height:$height;
+  background-color:$backgroundColor;
+  border-radius:$borderRadius;
+  position:$position;
+}
+
+@mixin calcNodes($changeByMe,$val){
+  $node:0%;
+  @for $i from 1 through 3{
+    #{$node}{
+      top: $val;
+    }
+    $node:$node+50%;
+    
+      @if ($i%2)==0 {
+        $val:$val - $changeByMe;
+      }@else{
+        $val:$val + $changeByMe;
+      } 
+  }
+}
+
+.eye {
+  @include generalDefinition($width:20px,$height:8px,$borderRadius:0px 0px 20px 20px);
+  @include box-shadow(40px 0px 0px 0px $loadingBackground); 
+  top: 40px;
+  left: 10px;
+}
+
+.head {
+  @include generalDefinition($width:80px,$height:80px,$borderRadius:50px,$backgroundColor:white);
+  @include backface-visibility(hidden);
+  @include  animation(node 1.5s infinite alternate ease-out);
+  @include box-shadow(inset -4px 2px 0px 0px $loadingBackground);
+  margin: -250px auto;
+}
+
+.body {
+  @include generalDefinition($width:140px,$height:120px,$borderRadius:50px/25px,$backgroundColor:white);
+  @include  animation(node2 1.5s infinite alternate ease-out);
+  @include box-shadow(inset -5px 2px 0px 0px $loadingBackground);
+  margin: 90px auto;
+}
+
+@-webkit-keyframes node {
+  @include calcNodes(10,0px);
+}
+
+@-webkit-keyframes node2 {
+  @include calcNodes(15,-5px);
+}
+
+@-moz-keyframes node{
+   @include calcNodes(10,0px);
+}
+
+@-moz-keyframes node2{
+   @include calcNodes(15,-5px);
+}
+
+.circ {
+  @include generalDefinition($width:180px,$height:180px,$borderRadius:0px 0px 50px 50px,$backgroundColor:white);
+  @include backface-visibility(hidden);
+  z-index: -1;
+  left: 0%;
+  float: left;
+  top: 20%;
+  overflow: hidden; 
+}
+
+.hands {
+  @include generalDefinition($width:120px,$height:120px,$borderRadius:20px,$backgroundColor:white,$position: absolute);
+  @include backface-visibility(hidden);
+  @include  animation(node2 1.5s infinite alternate ease-out);
+  @include  box-shadow(-1px -4px 0px 0px $loadingBackground);
+  @include  transform(rotate(45deg));
+  margin-top: 140px;
+  top: 75%;
+  left: 16%;
+  z-index: 1;
+}
+
+.load {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  margin: -10px auto;
+  -webkit-font-smoothing: antialiased;
+  font-size: 30px;
+  font-weight: 400;
+  color: $loadingBackground;
+  left: 10%;
+  top: 5%; }
+
+/*# sourceMappingURL=style.css.map */

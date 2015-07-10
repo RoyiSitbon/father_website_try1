@@ -1,0 +1,49 @@
+@import "compass";
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+
+body {
+  margin: 50px;
+  font:{
+    family: Comic Sans MS; 
+  }
+}
+
+a {
+  color: #00B7FF; 
+}
+
+%tableColumn{
+  padding: 5px;
+  border: 1px solid #ddd; 
+}
+td, th {
+  @extend %tableColumn;
+}
+
+table {
+  width: 60%;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.main-inputs {
+  width: 12%;
+  float: left;
+  margin-right: 5px; 
+}
+
+.smallBtn {
+  padding: 7px 11px; 
+}
+
+.errorTable {
+  margin-top: 10px; 
+}
+
+.noBorder {
+  border: 0px; 
+}
+// +box-sizing(border-box);
+@import "downloading";

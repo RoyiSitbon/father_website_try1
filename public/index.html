@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="app" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/style.css" />
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" type="text/css" href="css/ie6_Dlm_main.css" />
+	<![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>  
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-sanitize.min.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>	
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js"></script>
+	<script src="./javascripts/components/header/headerService.js"></script> 
+  	<script src="./javascripts/components/header/headerFilter.js"></script> 
+  	<script src="./javascripts/components/header/headerDirective.js"></script>     	
+	<script src="./javascripts/components/header/headerCtrl.js"></script> 
+  	<script src="./javascripts/errorPage/errorService.js"></script> 
+  	<script src="./javascripts/errorPage/errorFilter.js"></script>
+  	<script src="./javascripts/errorPage/errorDirective.js"></script>  	
+  	<script src="./javascripts/errorPage/errorCtrl.js"></script> 
+    <script src="./javascripts/app.js"></script>
+</head>
+<body>
+	<div class="row" ui-view="header"></div> 
+	<div class="row" ui-view="container"></div>  
+<!-- 	<div class="row" ui-view="footer"></div>   -->       
+</body>
+<!-- <head>
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta HTTP-EQUIV="Expires" CONTENT="-1">
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+</head> -->
+</html>
