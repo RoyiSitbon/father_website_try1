@@ -24,7 +24,7 @@ app.set('port', process.env.PORT || 7777);
 //insert dataBase connection here
 
 //connection.connect();
-require('./utils/sqlConnection').setPostgresqlConnection(client);
+require('./utils/sqlConnection').setPostgresqlConnection(client); 
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
