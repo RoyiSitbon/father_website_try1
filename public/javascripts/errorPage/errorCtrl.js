@@ -12,7 +12,7 @@
 			vm.isLoading = false;
 			vm.setPencilFlag = false;
 			vm.pencilError = {};
-			vm.planeError = {};
+			vm.planeError = {}; 
 			vm.trashError ={};
 			vm.currentError = {};
 			vm.searchedErrors = [];
