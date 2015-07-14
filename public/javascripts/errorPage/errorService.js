@@ -16,7 +16,6 @@
                                   break;
             case "deleteError" :  dataObj = {currentError:trashError};
                                   break;
-
           }
           $http({
             method:"POST",
