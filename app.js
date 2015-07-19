@@ -21,14 +21,7 @@ app.set('view engine', 'jade');
 
 app.set('port', process.env.PORT || 7777);
 
-// var connection = mysql.createConnection({
-//   host     : 'postgresql://ic_ps:Evzao1EC@redshift-ssd.infra-team.com:5439/icbi?tcpKeepAlive=true',
-//   user     : 'ic_ps',
-//   password : 'Evzao1EC',
-//   database : 'icbi'
-// });
-var conString = "postgresql://ic_ps:Evzao1EC@redshift-ssd.infra-team.com:5439/icbi?tcpKeepAlive=true";
-//var conString = "postgres://YourUserName:YourPassword@localhost:5432/YourDatabase";
+//insert db here
 
 var client = new pg.Client(conString);
 client.connect();
