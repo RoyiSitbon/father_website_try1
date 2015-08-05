@@ -21,10 +21,7 @@ app.set('view engine', 'jade');
 
 app.set('port', process.env.PORT || 7777);
 
-//insert db here
-
-var client = new pg.Client(conString);
-client.connect();
+//insert db code here
 
 
 var client = new pg.Client(conString);
